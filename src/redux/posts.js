@@ -1,6 +1,7 @@
 const initialState = {
     items: [],
     loading: false,
+
 }
 
 const postsReducer = (state = initialState, action) => {

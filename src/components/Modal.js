@@ -8,12 +8,11 @@ const Modal = ({active, setActive}) => {
     const params = useParams();
 
     const posts = useSelector(state => state.posts.items);
-    const post = posts.map((post, id) => {
-        return post === id;
-    });
 
     useEffect(() => {
-        dispatch(loadPosts(params.id));
+        if(params.id !== undefined) {
+            dispatch(loadPosts(params.id))
+        }
     }, [params]);
 
     const [comm, setComm] = useState([]);
@@ -43,14 +42,14 @@ const Modal = ({active, setActive}) => {
             <div className="modal-content">
                 <div className="modal-body">
                     <div className="modal-img">
-                        <div className="pic">
-                            <img src={post.url} alt=""/>
+                        <div className="pic" >
+
                         </div>
                     </div>
                     <div className="modal-comment">
                         <div className="comm">
                             <span className="date">20.03.2021</span>
-                            <p className="text">post.comments.text}</p>
+                            <p className="text"> </p>
                         </div>
                     </div>
                     <div className="close" onClick={() => setActive(false)}>
