@@ -47,38 +47,38 @@ const Modal = ({active, setActive}) => {
                             <img src={post.url} alt=""/>
                         </div>
                     </div>
-                    <div className="new-post">
-                        <div className="your-name">
-                            <input
-                                type="text"
-                                value={text1}
-                                onChange={handleChange1}
-                                placeholder="Ваше имя"
-                            />
-                        </div>
-                        <div className="your-comment">
-                            <input
-                                type="text"
-                                value={text2}
-                                onChange={handleChange2}
-                                placeholder="Ваш комментарий"
-                            />
-                        </div>
-                        <div>
-                            <button className="modal-btn" onClick={handleClick}>
-                                Оставить комментарий
-                            </button>
+                    <div className="modal-comment">
+                        <div className="comm">
+                            <span className="date">20.03.2021</span>
+                            <p className="text">post.comments.text}</p>
                         </div>
                     </div>
-                </div>
-                <div className="modal-comment">
-                    <div className="comm">
-                        <span className="date">20.03.2021</span>
-                        <p className="text">post.comments.text}</p>
+                    <div className="close" onClick={() => setActive(false)}>
+                        ×
                     </div>
                 </div>
-                <div className="close" onClick={() => setActive(false)}>
-                    ×
+                <div className="new-post">
+                    <div className="your-name">
+                        <input
+                            type="text"
+                            value={text1}
+                            onChange={handleChange1}
+                            placeholder="Ваше имя"
+                        />
+                    </div>
+                    <div className="your-comment">
+                        <input
+                            type="text"
+                            value={text2}
+                            onChange={handleChange2}
+                            placeholder="Ваш комментарий"
+                        />
+                    </div>
+                    <div>
+                        <button className="modal-btn" onClick={handleClick}>
+                            Оставить комментарий
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
