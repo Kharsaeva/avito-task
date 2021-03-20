@@ -5,6 +5,7 @@ import Images from "./Images";
 import {useDispatch} from "react-redux";
 import {loadImages} from "../redux/actions";
 import Modal from "./Modal";
+import {Route} from "react-router-dom";
 
 function App() {
     const dispatch = useDispatch();
@@ -13,15 +14,18 @@ function App() {
         dispatch(loadImages());
     }, []);
 
-    const [modalActive, setModalActive] = useState(true);
+    const [modalActive, setModalActive] = useState(false);
 
   return (
-      <div className="App">
-          <Header />
-          <Images setActive={setModalActive} />
-          <Footer />
-          <Modal active={modalActive} setActive={setModalActive} />
-      </div>
+      <Route path="/:id?">
+          <div className="App">
+              <Header />
+              <Images setActive={setModalActive} />
+              <Footer />
+              <Modal active={modalActive} setActive={setModalActive} />
+          </div>
+      </Route>
+
   );
 }
 

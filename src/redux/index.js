@@ -11,7 +11,7 @@ const logger = createLogger({
 
 const rootReducer = combineReducers({
     images: imagesReducer,
-    comments: postsReducer,
+    posts: postsReducer,
 });
 
 const store = createStore(rootReducer, applyMiddleware(thunk, logger));
