@@ -21,7 +21,7 @@ export const loadPosts = (id) => {
             type: 'posts/load/start',
         });
 
-        fetch(`https://boiling-refuge-66454.herokuapp.com/images/id=${id}`)
+        fetch(`https://boiling-refuge-66454.herokuapp.com/images/${id}`)
             .then(response => response.json())
             .then(json => {
                 dispatch({

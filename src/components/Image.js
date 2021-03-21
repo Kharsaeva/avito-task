@@ -7,8 +7,8 @@ function Image(props) {
             <div className="image">
                 <img
                     className="img"
-                     src={props.image.url} alt=""
-                     onClick={() => props.setActive(true)}
+                    src={props.image.url} alt=""
+                    onClick={() => props.setActive(true)}
                 />
             </div>
         </Link>

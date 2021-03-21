@@ -1,21 +1,21 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {loadPosts} from "../redux/actions";
+import { loadPosts} from "../redux/actions";
 import {useParams} from "react-router-dom";
 
 const Modal = ({active, setActive}) => {
     const dispatch = useDispatch();
-    const params = useParams();
-
+    const params = useParams().id;
+    const comments = useSelector((state) => state.posts.items.comments);
     const posts = useSelector(state => state.posts.items);
 
     useEffect(() => {
-        if(params.id !== undefined) {
-            dispatch(loadPosts(params.id))
+        if (params !== undefined) {
+            dispatch(loadPosts(params));
         }
     }, [params]);
 
-    const [comm, setComm] = useState([]);
+    const [comm, setComm] = useState('');
 
     const [text1, setText1] = useState('');
     const [text2, setText2] = useState('');
@@ -30,7 +30,8 @@ const Modal = ({active, setActive}) => {
 
     const handleClick = () => {
         setComm([{
-            text: text2,
+            text1: text1,
+            text2: text2,
         }, ...comm])
 
         setText1("");
@@ -42,14 +43,28 @@ const Modal = ({active, setActive}) => {
             <div className="modal-content">
                 <div className="modal-body">
                     <div className="modal-img">
-                        <div className="pic" >
-
+                        <div>
+                            <img className="pic"  src={posts.url} alt=""/>
                         </div>
                     </div>
                     <div className="modal-comment">
                         <div className="comm">
-                            <span className="date">20.03.2021</span>
-                            <p className="text"> </p>
+                            {comments === undefined ? '' : (
+                                <div className="text">
+                                    {comments.map((comm) => {
+                                        return (
+                                            <div>
+                                                <p className="date">
+                                                    {comm.date}
+                                                </p>
+                                                <span>
+                                                        {comm.text}
+                                                    </span>
+                                            </div>
+                                        )
+                                    })}
+                                </div>
+                            )}
                         </div>
                     </div>
                     <div className="close" onClick={() => setActive(false)}>
