@@ -51,14 +51,14 @@ const Modal = ({active, setActive}) => {
                         <div className="comment-text">
                             {comments === undefined ? '' : (
                                 <div>
-                                    {comments.map((comm) => {
+                                    {comments.map((comment) => {
                                         return (
                                             <div>
                                                 <p className="date">
-                                                    {comm.date}
+                                                    {comment.date}
                                                 </p>
                                                 <span>
-                                                    {comm.text}
+                                                    {comment.text}
                                                 </span>
                                             </div>
                                         )
