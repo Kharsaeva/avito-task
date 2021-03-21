@@ -58,8 +58,8 @@ const Modal = ({active, setActive}) => {
                                                     {comm.date}
                                                 </p>
                                                 <span>
-                                                        {comm.text}
-                                                    </span>
+                                                    {comm.text}
+                                                </span>
                                             </div>
                                         )
                                     })}
