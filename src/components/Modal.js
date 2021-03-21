@@ -48,9 +48,9 @@ const Modal = ({active, setActive}) => {
                         </div>
                     </div>
                     <div className="modal-comment">
-                        <div className="comm">
+                        <div className="comment-text">
                             {comments === undefined ? '' : (
-                                <div className="text">
+                                <div>
                                     {comments.map((comm) => {
                                         return (
                                             <div>
