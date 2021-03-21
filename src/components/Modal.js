@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import { loadPosts} from "../redux/actions";
+import {loadPosts} from "../redux/actions";
 import {useParams} from "react-router-dom";
 
 const Modal = ({active, setActive}) => {
@@ -44,26 +44,24 @@ const Modal = ({active, setActive}) => {
                 <div className="modal-body">
                     <div className="modal-img">
                         <div>
-                            <img className="pic"  src={posts.url} alt=""/>
+                            <img className="pic" src={posts.url} alt=""/>
                         </div>
                     </div>
                     <div className="modal-comment">
                         <div className="comment-text">
                             {comments === undefined ? '' : (
-                                <div>
-                                    {comments.map((comment) => {
-                                        return (
-                                            <div>
-                                                <p className="date">
-                                                    {comment.date}
-                                                </p>
-                                                <span>
-                                                    {comment.text}
-                                                </span>
-                                            </div>
-                                        )
-                                    })}
-                                </div>
+                                comments.map((comment) => {
+                                    return (
+                                        <div>
+                                            <p className="date">
+                                                {comment.date}
+                                            </p>
+                                            <span>
+                                                {comment.text}
+                                            </span>
+                                        </div>
+                                    )
+                                })
                             )}
                         </div>
                     </div>
