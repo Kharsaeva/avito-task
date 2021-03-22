@@ -25,7 +25,6 @@ function App() {
               <Modal active={modalActive} setActive={setModalActive} />
           </div>
       </Route>
-
   );
 }
 

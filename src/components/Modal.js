@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {loadPosts} from "../redux/actions";
-import {useParams} from "react-router-dom";
+import {NavLink, useParams} from "react-router-dom";
 
 const Modal = ({active, setActive}) => {
     const dispatch = useDispatch();
@@ -22,11 +22,11 @@ const Modal = ({active, setActive}) => {
 
     const handleChange1 = (e) => {
         setText1(e.target.value);
-    }
+    };
 
     const handleChange2 = (e) => {
         setText2(e.target.value);
-    }
+    };
 
     const handleClick = () => {
         setComm([{
@@ -36,7 +36,7 @@ const Modal = ({active, setActive}) => {
 
         setText1("");
         setText2("");
-    }
+    };
 
     return (
         <div className={active ? "modal active" : "modal"}>
@@ -65,25 +65,27 @@ const Modal = ({active, setActive}) => {
                             )}
                         </div>
                     </div>
-                    <div className="close" onClick={() => setActive(false)}>
-                        ×
-                    </div>
+                    <NavLink to="/">
+                        <div className="close" onClick={() => setActive(false)}>
+                            ×
+                        </div>
+                    </NavLink>
                 </div>
                 <div className="new-post">
                     <div className="your-name">
                         <input
                             type="text"
+                            placeholder="Ваше имя"
                             value={text1}
                             onChange={handleChange1}
-                            placeholder="Ваше имя"
                         />
                     </div>
                     <div className="your-comment">
                         <input
                             type="text"
+                            placeholder="Ваш комментарий"
                             value={text2}
                             onChange={handleChange2}
-                            placeholder="Ваш комментарий"
                         />
                     </div>
                     <div>

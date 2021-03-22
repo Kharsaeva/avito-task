@@ -39,6 +39,7 @@ html, body {
 .images {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     max-width: 750px;
 }
 
@@ -126,7 +127,7 @@ hr {
 }
 
 .pic {
-    background-color: gray;
+    background-color: lightgray;
     width: 331px;
     height: 205px;
     margin-bottom: 30px;
@@ -164,6 +165,11 @@ input {
     line-height: 15px;
     align-items: center;
 }
+
+a {
+    text-decoration: none;
+}
+
 @media (max-width: 360px) {
     body{
         min-width: 320px;

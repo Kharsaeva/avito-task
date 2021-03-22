@@ -13,7 +13,7 @@ export const loadImages = () => {
                 });
             })
     }
-}
+};
 
 export const loadPosts = (id) => {
     return (dispatch) => {
@@ -30,4 +30,4 @@ export const loadPosts = (id) => {
                 });
             })
     }
-}
+};
