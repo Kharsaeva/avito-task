@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {loadPosts} from "../redux/actions";
+import {addNewComment, loadPosts} from "../redux/actions";
 import {NavLink, useParams} from "react-router-dom";
 
 const Modal = ({active, setActive}) => {
@@ -15,27 +15,14 @@ const Modal = ({active, setActive}) => {
         }
     }, [params]);
 
-    const [comm, setComm] = useState('');
+    const [name, setName] = useState('');
+    const [text, setText] = useState('');
 
-    const [text1, setText1] = useState('');
-    const [text2, setText2] = useState('');
+    const addComment = (text) => {
+        dispatch(addNewComment(text));
 
-    const handleChange1 = (e) => {
-        setText1(e.target.value);
-    };
-
-    const handleChange2 = (e) => {
-        setText2(e.target.value);
-    };
-
-    const handleClick = () => {
-        setComm([{
-            text1: text1,
-            text2: text2,
-        }, ...comm])
-
-        setText1("");
-        setText2("");
+        setName("");
+        setText("");
     };
 
     return (
@@ -76,20 +63,20 @@ const Modal = ({active, setActive}) => {
                         <input
                             type="text"
                             placeholder="Ваше имя"
-                            value={text1}
-                            onChange={handleChange1}
+                            value={name}
+                            onChange={e => setName(e.target.value)}
                         />
                     </div>
                     <div className="your-comment">
                         <input
                             type="text"
                             placeholder="Ваш комментарий"
-                            value={text2}
-                            onChange={handleChange2}
+                            value={text}
+                            onChange={e => setText(e.target.value)}
                         />
                     </div>
                     <div>
-                        <button className="modal-btn" onClick={handleClick}>
+                        <button className="modal-btn" onClick={e => addComment(e)}>
                             Оставить комментарий
                         </button>
                     </div>

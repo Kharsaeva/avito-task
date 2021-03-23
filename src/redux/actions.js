@@ -31,3 +31,12 @@ export const loadPosts = (id) => {
             })
     }
 };
+
+export const addNewComment = (text) => {
+    return (dispatch) => {
+        dispatch({
+            type: 'comment/add/success',
+            payload: text,
+        });
+    }
+};

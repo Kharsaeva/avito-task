@@ -1,6 +1,8 @@
 const initialState = {
     items: [],
+    comments: '',
     loading: false,
+
 };
 
 const postsReducer = (state = initialState, action) => {
@@ -16,6 +18,12 @@ const postsReducer = (state = initialState, action) => {
                 ...state,
                 items: action.payload,
                 loading: false,
+            };
+
+        case 'comment/add/success':
+            return {
+                ...state,
+                comments: action.payload,
             };
 
         default:
