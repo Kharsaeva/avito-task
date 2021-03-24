@@ -1,34 +1,33 @@
 const initialState = {
-    items: [],
-    comments: '',
-    loading: false,
-
+  items: [],
+  comments: '',
+  loading: false,
 };
 
 const postsReducer = (state = initialState, action) => {
-    switch (action.type) {
-        case 'posts/load/start':
-            return{
-                ...state,
-                loading: true,
-            };
+  switch (action.type) {
+    case 'posts/load/start':
+      return {
+        ...state,
+        loading: true,
+      };
 
-        case 'posts/load/success':
-            return {
-                ...state,
-                items: action.payload,
-                loading: false,
-            };
+    case 'posts/load/success':
+      return {
+        ...state,
+        items: action.payload,
+        loading: false,
+      };
 
-        case 'comment/add/success':
-            return {
-                ...state,
-                comments: action.payload,
-            };
+    case 'comment/add/success':
+      return {
+        ...state,
+        comments: action.payload,
+      };
 
-        default:
-            return state;
-    }
-}
+    default:
+      return state;
+  }
+};
 
 export default postsReducer;
