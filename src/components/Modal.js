@@ -5,7 +5,9 @@ import { NavLink, useParams } from 'react-router-dom';
 
 const Modal = ({ active, setActive }) => {
   const dispatch = useDispatch();
+
   const params = useParams().id;
+
   const comments = useSelector((state) => state.posts.items.comments);
   const posts = useSelector((state) => state.posts.items);
 
@@ -13,7 +15,7 @@ const Modal = ({ active, setActive }) => {
     if (params !== undefined) {
       dispatch(loadPosts(params));
     }
-  }, [params]);
+  }, [dispatch, params]);
 
   const [name, setName] = useState('');
   const [text, setText] = useState('');
@@ -41,7 +43,11 @@ const Modal = ({ active, setActive }) => {
                 : comments.map((comment) => {
                     return (
                       <div>
-                        <p className="date">{comment.date}</p>
+                        <p className="date">
+                          {new Date(comment.date)
+                            .toLocaleTimeString()
+                            .slice(0, -3)}
+                        </p>
                         <span>{comment.text}</span>
                       </div>
                     );

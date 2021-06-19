@@ -12,13 +12,13 @@ function App() {
 
   useEffect(() => {
     dispatch(loadImages());
-  }, []);
+  }, [dispatch]);
 
   const [modalActive, setModalActive] = useState(false);
 
   return (
     <Route path="/:id?">
-      <div className="App">
+      <div className="app">
         <Header />
         <Images setActive={setModalActive} />
         <Footer />
